@@ -64,6 +64,74 @@
 
 
 
+// SEIVE VARIATION ...HIGHEST PRIME / LOWEST PRIME / FINDING PRIME FACT. OF A NUMBER
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// typedef long long ll;
+// #define endl "\n";
+
+// int main(){
+//     ll t;
+//     cin>>t;
+//     while(t--){
+//     ll n;
+//     cin>>n;
+//     vector<ll>hp(n+1),lp(n+1);
+//     vector<bool>isprime(n+1,1);
+//     isprime[0]=isprime[1]=false;
+//     for(int i=2;i<=n;++i){
+//         if(isprime[i]==true){
+//         lp[i]=hp[i]=i;
+//         for(int j=2*i;j<=n;j+=i){
+// isprime[j]=false;
+// hp[j]=i;
+// if(lp[j]==0) lp[j]=i;
+//         }}
+//     }
+//     for(int i=1;i<=n;++i){
+//         cout<<lp[i]<<" "<<hp[i];
+//         cout<<endl;
+//     }
+//     }
+// }
+
+
+// PRIME FACT OF K NUMBER USING SIEVE
+
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define endl "\n";
+
+int main(){
+    ll t;
+    cin>>t;
+    while(t--){
+    ll n;
+    cin>>n;
+    vector<ll>hp(n+1),lp(n+1);
+    vector<bool>isprime(n+1,1);
+    isprime[0]=isprime[1]=false;
+    for(int i=2;i<=n;++i){
+        if(isprime[i]==true){
+        lp[i]=hp[i]=i;
+        for(int j=2*i;j<=n;j+=i){
+isprime[j]=false;
+hp[j]=i;
+if(lp[j]==0) lp[j]=i;
+        }}
+    }
+   vector<ll>factor;
+   while(n>1){
+    factor.push_back(lp[n]);
+    n/=lp[n];
+   }
+for(ll f : factor){
+    cout<<f<<" ";
+}
+    }
+}
 
 
 
